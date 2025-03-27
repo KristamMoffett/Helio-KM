@@ -1,0 +1,17 @@
+# Build outputs
+.next/
+dist/
+build/
+
+# Dependencies
+node_modules/
+
+# Coverage reports
+coverage/
+
+# Cache directories
+.cache/
+
+# Misc
+.DS_Store
+*.pem 
