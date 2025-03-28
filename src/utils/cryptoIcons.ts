@@ -1,14 +1,22 @@
-import availableIcons from './available-icons.json';
+const GENERIC_ICON = '/crypto-icons/generic.svg';
+const POLYGON_ICON = '/crypto-icons/polygon.svg';
+const BNB_ICON = '/crypto-icons/bnb.svg';
+const ASSETS_URL = 'https://helio-assets.s3.eu-west-1.amazonaws.com';
 
 // Helper function to get the icon path for a currency symbol
-export function getCryptoIcon(symbol: string): string {
-  const normalizedSymbol = symbol.toLowerCase();
-
-  // Check if we have a specific icon for this symbol
-  if (availableIcons.includes(normalizedSymbol)) {
-    return `/crypto-icons/${normalizedSymbol}.svg`;
+export async function getCryptoIcon(symbol: string): Promise<string> {
+  const response = await fetch(`${ASSETS_URL}/${symbol}.svg`);
+  if (response.ok) {
+    return `${ASSETS_URL}/${symbol}.svg`;
   }
 
-  // Fallback to generic icon
-  return '/crypto-icons/generic.svg';
+  // Fallback to local icons if S3 fetch fails
+  switch (symbol) {
+    case 'POLYGON':
+      return POLYGON_ICON;
+    case 'BITCOIN':
+      return BNB_ICON;
+    default:
+      return GENERIC_ICON;
+  }
 }

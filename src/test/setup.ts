@@ -2,7 +2,6 @@
 import '@testing-library/jest-dom';
 import { cleanup } from '@testing-library/react';
 import * as matchers from '@testing-library/jest-dom/matchers';
-import React from 'react';
 
 // Mock matchMedia
 window.matchMedia =

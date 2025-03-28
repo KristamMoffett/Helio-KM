@@ -11,7 +11,7 @@ export const NoFilterResults = () => {
             No currencies found
           </Text>
           <Text c="dimmed" ta="center">
-            Try adjusting your search or filters to find what you're looking for
+            Try adjusting your search or filters to find what you&apos;re looking for
           </Text>
         </Stack>
       </Center>

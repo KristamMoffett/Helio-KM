@@ -2,13 +2,6 @@ import { useState, useMemo } from 'react';
 import { useDebouncedValue } from '@mantine/hooks';
 import { Currency } from '@/types/currency';
 
-interface FilterOptions {
-  searchQuery: string;
-  selectedChain: string;
-  selectedType: string;
-  selectedFeatures: string[];
-}
-
 export const useCurrencyFilters = (currencies: Currency[]) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [debouncedSearchQuery] = useDebouncedValue(searchQuery, 300);

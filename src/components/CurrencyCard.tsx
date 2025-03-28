@@ -4,14 +4,10 @@ import { CurrencyLogo } from './CurrencyLogo';
 
 export const CurrencyCard = ({ currency }: { currency: Currency }) => {
   return (
-    <Grid.Col key={currency.id} span={{ base: 12, sm: 6, md: 4 }}>
+    <Grid.Col key={currency.id} span={{ base: 12, md: 6, lg: 4 }}>
       <Card shadow="sm" padding="lg" radius="md" withBorder h="100%">
         <Group>
-          <CurrencyLogo
-            symbol={currency.symbol}
-            name={currency.name}
-            chain={currency.blockchain?.name}
-          />
+          <CurrencyLogo symbol={currency.symbol} chain={currency.blockchain?.name} />
           <Stack gap={2}>
             <Text mb={4} fw={600} inline={true}>
               {currency.name}

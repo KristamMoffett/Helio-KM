@@ -10,7 +10,6 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
-    "copy-icons": "node scripts/copy-crypto-icons.js",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
   },
@@ -20,7 +19,6 @@
     "@mantine/core": "^7.17.3",
     "@mantine/hooks": "^7.17.3",
     "@tabler/icons-react": "^3.31.0",
-    "cryptocurrency-icons": "^0.18.1",
     "next": "15.2.4",
     "postcss": "^8.5.3",
     "postcss-preset-mantine": "^1.17.0",

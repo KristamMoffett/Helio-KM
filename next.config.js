@@ -6,6 +6,14 @@ const nextConfig = {
     webpackBuildWorker: true,
     // Optimize cache serialization
     optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
+    images: {
+      remotePatterns: [
+        {
+          protocol: 'https',
+          hostname: 'helio-assets.s3.eu-west-1.amazonaws.com', // Allow images from all domains
+        },
+      ],
+    },
   },
   webpack: (config, { dev }) => {
     if (dev) {

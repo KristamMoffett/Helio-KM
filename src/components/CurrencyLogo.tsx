@@ -1,29 +1,52 @@
-import { Box, Group, Tooltip } from '@mantine/core';
-import Image from 'next/image';
+import { Avatar, Box, Group, Loader, Tooltip } from '@mantine/core';
 import { getCryptoIcon } from '@/utils/cryptoIcons';
+import { useEffect, useState } from 'react';
 
-export const CurrencyLogo = ({
-  symbol,
-  name,
-  chain,
-}: {
-  symbol: string;
-  name: string;
-  chain?: string;
-}) => {
+export const CurrencyLogo = ({ symbol, chain }: { symbol: string; chain?: string }) => {
+  const [mainIcon, setMainIcon] = useState<string | null>(null);
+  const [chainIcon, setChainIcon] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadMainIcon = async () => {
+      const mainIconUrl = await getCryptoIcon(symbol);
+      setMainIcon(mainIconUrl);
+    };
+
+    const loadChainIcon = async () => {
+      if (chain) {
+        const chainIconUrl = await getCryptoIcon(chain);
+        setChainIcon(chainIconUrl);
+      }
+    };
+
+    loadMainIcon();
+    loadChainIcon();
+  }, [symbol, chain]);
+
   return (
-    <Group gap="xs">
-      <Image src={getCryptoIcon(symbol)} alt={name} width={40} height={40} />
+    <Group gap="xs" style={{ position: 'relative' }}>
+      <Avatar src={mainIcon} w={40} h={40} color="initials">
+        <Loader size={16} color="gray.5" />
+      </Avatar>
+
       {chain && (
         <Tooltip arrowSize={8} withArrow label={chain} position="right">
-          <Box ml={-22} mt={24} w={22} h={22} bg="white" style={{ borderRadius: '50%' }}>
-            <Image
-              src={getCryptoIcon(chain)}
-              alt={name}
-              width={22}
-              height={22}
-              style={{ borderRadius: '50%', border: '2.5px solid white' }}
-            />
+          <Box
+            bottom={-3}
+            right={-8}
+            w={22}
+            h={22}
+            bg="white"
+            style={{ position: 'absolute', borderRadius: '50%' }}
+          >
+            <Avatar
+              src={chainIcon}
+              w={22}
+              h={22}
+              style={{ border: '2.5px solid white', minWidth: 0 }}
+            >
+              <Loader size={10} color="gray.5" />
+            </Avatar>
           </Box>
         </Tooltip>
       )}
