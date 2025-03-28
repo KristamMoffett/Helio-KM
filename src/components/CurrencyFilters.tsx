@@ -1,4 +1,4 @@
-import { Container, Grid, MultiSelect, Select, Stack, TextInput } from '@mantine/core';
+import { Container, Grid, MultiSelect, Select, TextInput } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 
 interface CurrencyFiltersProps {

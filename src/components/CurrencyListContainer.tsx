@@ -8,7 +8,7 @@ import { CurrencyListSkeleton } from './CurrencyListSkeleton';
 import { CurrencyFilters } from './CurrencyFilters';
 import { useCurrencyFilters } from '@/hooks/useCurrencyFilters';
 import { getChainOptions, getFeatureOptions } from '@/utils/currencyFilters';
-import { Container, Flex, Group, Stack } from '@mantine/core';
+import { Container, Flex } from '@mantine/core';
 
 export const CurrencyListContainer = () => {
   const [currencies, setCurrencies] = useState<Currency[]>([]);

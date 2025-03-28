@@ -1,7 +1,7 @@
 'use client';
 
 import { CurrencyListProps } from '@/types/currency';
-import { Container, Grid, Loader } from '@mantine/core';
+import { Grid, Loader } from '@mantine/core';
 import { CurrencyCard } from './CurrencyCard';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
