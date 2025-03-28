@@ -18,7 +18,7 @@ export const CurrencyLogo = ({
         <Tooltip arrowSize={8} withArrow label={chain} position="right">
           <Box ml={-22} mt={24} w={22} h={22} bg="white" style={{ borderRadius: '50%' }}>
             <Image
-              src={getCryptoIcon(name)}
+              src={getCryptoIcon(chain)}
               alt={name}
               width={22}
               height={22}

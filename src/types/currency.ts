@@ -22,3 +22,7 @@ export interface Currency {
   features: string[];
   blockchain: Blockchain | null;
 }
+
+export interface CurrencyListProps {
+  currencies: Currency[];
+}

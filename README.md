@@ -1,8 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Hel.io Currencies
+
+A modern web application for exploring and managing currencies on the Hel.io platform. Built with Next.js and Mantine UI.
+
+## Features
+
+- 🎨 Modern, responsive UI using Mantine components
+- 📱 Mobile-friendly design
+- 🔄 Infinite scroll for currency list
+- 🎯 TypeScript for type safety
+- 🧪 Comprehensive test suite with Vitest
+- 🎨 Prettier for consistent code formatting
+- 🔍 ESLint for code quality
+
+## Tech Stack
+
+- **Framework**: Next.js 15
+- **UI Library**: Mantine v7
+- **Styling**: Emotion
+- **Testing**: Vitest + Testing Library
+- **Type Checking**: TypeScript
+- **Code Quality**: ESLint + Prettier
+- **Icons**: Tabler Icons
+- **Crypto Icons**: cryptocurrency-icons
+
+## Prerequisites
+
+- Node.js 18+
+- npm or yarn or pnpm or bun
 
 ## Getting Started
 
-First, run the development server:
+1. Clone the repository:
+
+```bash
+git clone [repository-url]
+cd helio-km
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+# or
+yarn install
+# or
+pnpm install
+# or
+bun install
+```
+
+3. Copy crypto icons (required for currency icons):
+
+```bash
+npm run copy-icons
+```
+
+4. Start the development server:
 
 ```bash
 npm run dev
@@ -16,21 +69,36 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
+- `npm run format` - Format code with Prettier
+- `npm run format:check` - Check code formatting
+- `npm run test` - Run tests
+- `npm run test:ui` - Run tests with UI
+- `npm run test:coverage` - Run tests with coverage report
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/              # Next.js app directory
+├── components/       # React components
+├── services/        # API and data services
+└── types/           # TypeScript type definitions
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## Deploy on Vercel
+## License
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License - see the LICENSE file for details.

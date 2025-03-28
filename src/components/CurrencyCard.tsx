@@ -5,7 +5,7 @@ import { CurrencyLogo } from './CurrencyLogo';
 export const CurrencyCard = ({ currency }: { currency: Currency }) => {
   return (
     <Grid.Col key={currency.id} span={{ base: 12, sm: 6, md: 4 }}>
-      <Card shadow="sm" padding="lg" radius="md" withBorder>
+      <Card shadow="sm" padding="lg" radius="md" withBorder h="100%">
         <Group>
           <CurrencyLogo
             symbol={currency.symbol}
