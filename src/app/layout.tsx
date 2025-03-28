@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: 'Technical assignment for Helio Pay',
 };
 
-export const RootLayout = ({ children }: { children: React.ReactNode }) => {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body className={inter.className}>
