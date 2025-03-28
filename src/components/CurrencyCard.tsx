@@ -1,4 +1,4 @@
-import { Card, Grid, Group, Text, Badge, Stack, Button } from '@mantine/core';
+import { Card, Grid, Group, Text, Badge, Stack } from '@mantine/core';
 import { Currency } from '@/types/currency';
 import { CurrencyLogo } from './CurrencyLogo';
 import Link from 'next/link';
@@ -6,7 +6,6 @@ import { getDexAddress } from '@/utils/getDexAddress';
 import { IconExternalLink } from '@tabler/icons-react';
 
 export const CurrencyCard = ({ currency }: { currency: Currency }) => {
-  console.log(currency);
   return (
     <Grid.Col key={currency.id} span={{ base: 12, md: 6, lg: 4 }}>
       <Card shadow="sm" padding="lg" radius="md" withBorder h="100%" w="100%">
