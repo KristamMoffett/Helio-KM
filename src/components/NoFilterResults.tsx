@@ -3,7 +3,7 @@ import { IconMoodSad } from '@tabler/icons-react';
 
 export const NoFilterResults = () => {
   return (
-    <Paper p="xl" withBorder>
+    <Paper p="xl" withBorder flex={1}>
       <Center>
         <Stack align="center" gap="md">
           <IconMoodSad size={48} color="gray" />

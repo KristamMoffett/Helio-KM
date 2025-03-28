@@ -8,7 +8,7 @@ import { CurrencyListSkeleton } from './CurrencyListSkeleton';
 import { CurrencyFilters } from './CurrencyFilters';
 import { useCurrencyFilters } from '@/hooks/useCurrencyFilters';
 import { getChainOptions, getFeatureOptions } from '@/utils/currencyFilters';
-import { Stack } from '@mantine/core';
+import { Container, Flex, Group, Stack } from '@mantine/core';
 
 export const CurrencyListContainer = () => {
   const [currencies, setCurrencies] = useState<Currency[]>([]);
@@ -51,7 +51,7 @@ export const CurrencyListContainer = () => {
   }
 
   return (
-    <Stack gap={20}>
+    <Flex gap={20} align="flex-start" direction={{ base: 'column', md: 'row' }}>
       <CurrencyFilters
         searchQuery={searchQuery}
         onSearchChange={setSearchQuery}
@@ -64,7 +64,9 @@ export const CurrencyListContainer = () => {
         chains={chains}
         features={features}
       />
-      {isLoading ? <CurrencyListSkeleton /> : <CurrencyList currencies={filteredCurrencies} />}
-    </Stack>
+      <Container p={0} m={0} fluid flex={1}>
+        {isLoading ? <CurrencyListSkeleton /> : <CurrencyList currencies={filteredCurrencies} />}
+      </Container>
+    </Flex>
   );
 };

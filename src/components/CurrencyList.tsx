@@ -1,7 +1,7 @@
 'use client';
 
 import { CurrencyListProps } from '@/types/currency';
-import { Grid, Loader } from '@mantine/core';
+import { Container, Grid, Loader } from '@mantine/core';
 import { CurrencyCard } from './CurrencyCard';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { useInfiniteScroll } from '@/hooks/useInfiniteScroll';
@@ -27,20 +27,22 @@ export const CurrencyList = ({ currencies }: CurrencyListProps) => {
   }
 
   return (
-    <InfiniteScroll
-      dataLength={displayedCurrencies.length}
-      next={fetchMoreData}
-      hasMore={hasMore}
-      loader={loader}
-      scrollThreshold="90%"
-      style={{ overflow: 'visible' }}
-      scrollableTarget="body"
-    >
-      <Grid>
-        {displayedCurrencies.map(currency => (
-          <CurrencyCard key={currency.id} currency={currency} />
-        ))}
-      </Grid>
-    </InfiniteScroll>
+    <>
+      <InfiniteScroll
+        dataLength={displayedCurrencies.length}
+        next={fetchMoreData}
+        hasMore={hasMore}
+        loader={loader}
+        scrollThreshold="90%"
+        style={{ overflow: 'visible' }}
+        scrollableTarget="body"
+      >
+        <Grid>
+          {displayedCurrencies.map(currency => (
+            <CurrencyCard key={currency.id} currency={currency} />
+          ))}
+        </Grid>
+      </InfiniteScroll>
+    </>
   );
 };

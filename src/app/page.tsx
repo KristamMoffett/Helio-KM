@@ -3,7 +3,7 @@ import { CurrencyListContainer } from '@/components/CurrencyListContainer';
 
 export default function Home() {
   return (
-    <Container size="xl" py="xl">
+    <Container size="xxl" py="xl" style={{ maxWidth: '1600px' }}>
       <Title order={1} mb="md">
         Hel.io Currencies
       </Title>
