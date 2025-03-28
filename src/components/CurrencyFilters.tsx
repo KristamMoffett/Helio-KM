@@ -1,4 +1,4 @@
-import { Group, MultiSelect, Paper, Select, Stack, TextInput } from '@mantine/core';
+import { Group, MultiSelect, Select, TextInput } from '@mantine/core';
 import { IconSearch } from '@tabler/icons-react';
 
 interface CurrencyFiltersProps {
@@ -30,6 +30,7 @@ export const CurrencyFilters = ({
     <Group gap={8}>
       <TextInput
         placeholder="Search by name or symbol..."
+        data-testid="test-search"
         value={searchQuery}
         onChange={e => onSearchChange(e.currentTarget.value)}
         leftSection={<IconSearch size={16} />}
@@ -40,6 +41,7 @@ export const CurrencyFilters = ({
         placeholder="Select chain"
         data={chains}
         value={selectedChain}
+        data-testid="test-chain-select"
         onChange={(value: string | null) => onChainChange(value || '')}
         clearable
         disabled={selectedType === 'FIAT'}
@@ -56,6 +58,7 @@ export const CurrencyFilters = ({
       />
       <Select
         placeholder="Select type"
+        data-testid="test-type-select"
         data={[
           { value: '', label: 'All Types' },
           { value: 'DIGITAL', label: 'Digital' },
@@ -79,6 +82,7 @@ export const CurrencyFilters = ({
       />
       <MultiSelect
         placeholder="Select features"
+        data-testid="test-feature-select"
         data={features}
         value={selectedFeatures}
         onChange={onFeaturesChange}

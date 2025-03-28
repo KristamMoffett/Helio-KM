@@ -2,18 +2,25 @@
 const nextConfig = {
   transpilePackages: ['@mantine/core', '@mantine/hooks'],
   experimental: {
-    // Enable webpack memory cache
+    turbo: {
+      rules: {
+        '*.svg': {
+          loaders: ['@svgr/webpack'],
+          as: '*.js',
+        },
+      },
+    },
     webpackBuildWorker: true,
     // Optimize cache serialization
     optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
-    images: {
-      remotePatterns: [
-        {
-          protocol: 'https',
-          hostname: 'helio-assets.s3.eu-west-1.amazonaws.com', // Allow images from all domains
-        },
-      ],
-    },
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'helio-assets.s3.eu-west-1.amazonaws.com', // Allow images from all domains
+      },
+    ],
   },
   webpack: (config, { dev }) => {
     if (dev) {

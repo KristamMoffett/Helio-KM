@@ -25,7 +25,6 @@ const eslintConfig = [
       'no-multiple-empty-lines': ['error', { max: 1 }],
       'import/no-duplicates': 'error',
       'import/no-unresolved': 'error',
-      'import/named': 'error',
       'react/jsx-uses-react': 'error',
       'react/jsx-uses-vars': 'error',
       'react/no-unused-prop-types': 'error',

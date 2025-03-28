@@ -1,8 +1,7 @@
 import React from 'react';
-import { render, RenderOptions } from '@testing-library/react';
+import { render, type RenderOptions } from '@testing-library/react';
 import { MantineProvider } from '@mantine/core';
 
-// Mock ResizeObserver
 class ResizeObserver {
   private callback: ResizeObserverCallback;
 
@@ -24,8 +23,6 @@ const AllTheProviders = ({ children }: { children: React.ReactNode }) => {
 const customRender = (ui: React.ReactElement, options?: Omit<RenderOptions, 'wrapper'>) =>
   render(ui, { wrapper: AllTheProviders, ...options });
 
-// re-export everything
 export * from '@testing-library/react';
 
-// override render method
 export { customRender as render };

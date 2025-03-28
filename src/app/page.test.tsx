@@ -1,4 +1,5 @@
 import { render, screen } from '../test/test-utils';
+import '@testing-library/jest-dom';
 import Home from './page';
 
 test('Home Title', async () => {

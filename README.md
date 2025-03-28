@@ -21,7 +21,6 @@ A modern web application for exploring and managing currencies on the Hel.io pla
 - **Type Checking**: TypeScript
 - **Code Quality**: ESLint + Prettier
 - **Icons**: Tabler Icons
-- **Crypto Icons**: cryptocurrency-icons
 
 ## Prerequisites
 
@@ -43,13 +42,7 @@ cd helio-km
 pnpm install
 ```
 
-3. Copy crypto icons (required for currency icons):
-
-```bash
-pnpm run copy-icons
-```
-
-4. Start the development server:
+3. Start the development server:
 
 ```bash
 pnpm dev
@@ -59,15 +52,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Available Scripts
 
-- `pnpm run dev` - Start development server
-- `pnpm run build` - Build for production
-- `pnpm run start` - Start production server
-- `pnpm run lint` - Run ESLint
-- `pnpm run format` - Format code with Prettier
-- `pnpm run format:check` - Check code formatting
-- `pnpm run test` - Run tests
-- `pnpm run test:ui` - Run tests with UI
-- `pnpm run test:coverage` - Run tests with coverage report
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
+- `pnpm format` - Format code with Prettier
+- `pnpm format:check` - Check code formatting
+- `pnpm test` - Run tests
+- `pnpm test:ui` - Run tests with UI
+- `pnpm test:coverage` - Run tests with coverage report
 
 ## Project Structure
 
