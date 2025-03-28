@@ -1,7 +1,7 @@
 import { Container, Title, Text } from '@mantine/core';
 import { CurrencyListContainer } from '@/components/CurrencyListContainer';
 
-export default function Home() {
+export const Home = () => {
   return (
     <Container size="xxl" py="xl" style={{ maxWidth: '1600px' }}>
       <Title order={1} mb="md">
@@ -13,4 +13,6 @@ export default function Home() {
       <CurrencyListContainer />
     </Container>
   );
-}
+};
+
+export default Home;

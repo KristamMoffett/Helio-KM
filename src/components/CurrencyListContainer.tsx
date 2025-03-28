@@ -25,6 +25,10 @@ export const CurrencyListContainer = () => {
     selectedFeatures,
     setSelectedFeatures,
     filteredCurrencies,
+    sortField,
+    setSortField,
+    sortDirection,
+    setSortDirection,
   } = useCurrencyFilters(currencies);
 
   const chains = getChainOptions(currencies);
@@ -63,6 +67,10 @@ export const CurrencyListContainer = () => {
         onFeaturesChange={setSelectedFeatures}
         chains={chains}
         features={features}
+        sortField={sortField}
+        onSortFieldChange={setSortField}
+        sortDirection={sortDirection}
+        onSortDirectionChange={setSortDirection}
       />
       <Container p={0} m={0} fluid flex={1}>
         {isLoading ? <CurrencyListSkeleton /> : <CurrencyList currencies={filteredCurrencies} />}

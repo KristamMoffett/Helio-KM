@@ -8,6 +8,6 @@ const theme = createTheme({
   defaultRadius: 'md',
 });
 
-export function MantineProvider({ children }: { children: ReactNode }) {
+export const MantineProvider = ({ children }: { children: ReactNode }) => {
   return <MantineProviderBase theme={theme}>{children}</MantineProviderBase>;
-}
+};

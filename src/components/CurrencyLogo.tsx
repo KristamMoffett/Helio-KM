@@ -1,31 +1,25 @@
 import { Avatar, Box, Group, Loader, Tooltip } from '@mantine/core';
-import { getCryptoIcon } from '@/utils/cryptoIcons';
 import { useEffect, useState } from 'react';
+import { getChainIcon } from '@/utils/getChainIcon';
+import { getTokenLogo } from '@/utils/getTokenLogo';
 
-export const CurrencyLogo = ({ symbol, chain }: { symbol: string; chain?: string }) => {
-  const [mainIcon, setMainIcon] = useState<string | null>(null);
+export const CurrencyLogo = ({ url, chain }: { url: string; chain?: string }) => {
   const [chainIcon, setChainIcon] = useState<string | null>(null);
 
   useEffect(() => {
-    const loadMainIcon = async () => {
-      const mainIconUrl = await getCryptoIcon(symbol);
-      setMainIcon(mainIconUrl);
-    };
-
     const loadChainIcon = async () => {
       if (chain) {
-        const chainIconUrl = await getCryptoIcon(chain);
+        const chainIconUrl = await getChainIcon(chain);
         setChainIcon(chainIconUrl);
       }
     };
 
-    loadMainIcon();
     loadChainIcon();
-  }, [symbol, chain]);
+  }, [url, chain]);
 
   return (
     <Group gap="xs" style={{ position: 'relative' }}>
-      <Avatar src={mainIcon} w={40} h={40} color="initials">
+      <Avatar src={getTokenLogo(url)} w={40} h={40} color="initials">
         <Loader size={16} color="gray.5" />
       </Avatar>
 

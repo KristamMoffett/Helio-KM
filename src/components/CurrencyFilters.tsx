@@ -1,5 +1,6 @@
-import { Container, Grid, MultiSelect, Select, TextInput } from '@mantine/core';
-import { IconSearch } from '@tabler/icons-react';
+import { Container, Grid, MultiSelect, Select, TextInput, SegmentedControl } from '@mantine/core';
+import { IconSearch, IconSortAscending, IconSortDescending } from '@tabler/icons-react';
+import { SortField, SortDirection } from '@/hooks/useCurrencyFilters';
 
 interface CurrencyFiltersProps {
   searchQuery: string;
@@ -12,6 +13,10 @@ interface CurrencyFiltersProps {
   onFeaturesChange: (value: string[]) => void;
   chains: { value: string; label: string }[];
   features: { value: string; label: string }[];
+  sortField: SortField;
+  onSortFieldChange: (value: SortField) => void;
+  sortDirection: SortDirection;
+  onSortDirectionChange: (value: SortDirection) => void;
 }
 
 export const CurrencyFilters = ({
@@ -25,6 +30,10 @@ export const CurrencyFilters = ({
   onFeaturesChange,
   chains,
   features,
+  sortField,
+  onSortFieldChange,
+  sortDirection,
+  onSortDirectionChange,
 }: CurrencyFiltersProps) => {
   return (
     <Container
@@ -44,7 +53,7 @@ export const CurrencyFilters = ({
             leftSection={<IconSearch size={16} />}
           />
         </Grid.Col>
-        <Grid.Col span={{ base: 12, xs: 6, md: 12 }}>
+        <Grid.Col span={{ base: 12, xs: 4, md: 12 }}>
           <Select
             placeholder="Select chain"
             data={chains}
@@ -60,7 +69,7 @@ export const CurrencyFilters = ({
             }}
           />
         </Grid.Col>
-        <Grid.Col span={{ base: 12, xs: 6, md: 12 }}>
+        <Grid.Col span={{ base: 12, xs: 4, md: 12 }}>
           <Select
             placeholder="Select type"
             data-testid="test-type-select"
@@ -77,6 +86,48 @@ export const CurrencyFilters = ({
               }
             }}
             clearable
+            styles={{
+              dropdown: {
+                color: '#313131',
+              },
+            }}
+          />
+        </Grid.Col>
+        <Grid.Col span={{ base: 12, xs: 4, md: 12 }}>
+          <Select
+            placeholder="Sort by"
+            data-testid="test-sort-field-select"
+            rightSection={
+              <SegmentedControl
+                data-testid="test-sort-direction-select"
+                value={sortDirection}
+                size="xs"
+                onChange={(value: string) => onSortDirectionChange(value as SortDirection)}
+                data={[
+                  { label: <IconSortAscending size={12} />, value: 'asc' },
+                  { label: <IconSortDescending size={12} />, value: 'desc' },
+                ]}
+                styles={{
+                  root: {
+                    backgroundColor: 'transparent',
+                  },
+                }}
+              />
+            }
+            rightSectionWidth={60}
+            rightSectionProps={{
+              style: {
+                pointerEvents: 'auto',
+              },
+            }}
+            data={[
+              { value: 'order', label: 'Default Order' },
+              { value: 'name', label: 'Name' },
+              { value: 'symbol', label: 'Symbol' },
+              { value: 'features', label: '# of Features' },
+            ]}
+            value={sortField}
+            onChange={(value: string | null) => onSortFieldChange((value || 'order') as SortField)}
             styles={{
               dropdown: {
                 color: '#313131',

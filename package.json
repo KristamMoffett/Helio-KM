@@ -19,6 +19,8 @@
     "@mantine/core": "^7.17.3",
     "@mantine/hooks": "^7.17.3",
     "@tabler/icons-react": "^3.31.0",
+    "@types/lodash": "^4.17.16",
+    "lodash": "^4.17.21",
     "next": "15.2.4",
     "postcss": "^8.5.3",
     "postcss-preset-mantine": "^1.17.0",
